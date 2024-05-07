@@ -280,3 +280,14 @@ body{
     opacity: .8;
    
 }
+
+
+
+ @keyframes showRight{
+    100%{
+       width: 0;
+    }
+    0%{
+        transform: scaleX(1);
+    }
+} 
