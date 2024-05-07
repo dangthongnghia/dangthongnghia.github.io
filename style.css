@@ -39,7 +39,7 @@ body{
     top: 0;
     width: 100%;
     height: 100%;
-    background: #081b29;
+    background: red;
     animation: showRight 1s ease forwards;
     animation-delay: .4s;
    
@@ -281,8 +281,13 @@ body{
    
 }
 
-@keyframes showRight{
+
+
+ @keyframes showRight{
     100%{
-        width: 0;
+       width: 0;
     }
-}
+    0%{
+        transform: scaleX(1);
+    }
+} 
