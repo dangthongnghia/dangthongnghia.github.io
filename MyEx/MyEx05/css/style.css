@@ -47,23 +47,14 @@ header li{
 }
 
 header #branding{
-    line-height: 35px;
-  margin: 0px;
-  padding: 0px;
-
+    float: left;
 }
 
 header #branding h1{
     font-size: 40px;
     padding: 0px;
     margin-bottom: 35px;
-    ul{
-        display: flex;
-        padding-right: 20px;
-        font-size: 25px;
-        margin-top: 50px;
-        }
-
+    
 }
 
 header nav{
@@ -83,7 +74,8 @@ header .highlight, header .current a{
 }
 
 header a:hover{
-  
+    color:#cccccc;
+    font-weight:bold;
 
 }
 
