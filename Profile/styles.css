@@ -1,0 +1,222 @@
+body {
+    background: linear-gradient(135deg, #522157 30%, #8B4C70 70%);
+    font-family: "Fira Code, Roboto Mono, monospace";
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    color: #f8f8f2;
+}
+
+.header-container {
+    position: relative;
+    text-align: center;
+    margin-bottom: 40px;
+    height: 100px; /* Đảm bảo đủ không gian cho animation */
+    overflow: hidden;
+}
+
+.title-overlay {
+    position: relative;
+    z-index: 1; /* Đặt tiêu đề phía trên animation */
+    padding: 10px;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin: 0;
+    color: #fff;
+}
+
+.neon {
+    color: #f1fa8c;
+    text-shadow: 0 0 10px #f1fa8c, 0 0 20px #f1fa8c, 0 0 30px #ff00de;
+    animation: neonGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neonGlow {
+    from {
+        text-shadow: 0 0 10px #f1fa8c, 0 0 20px #f1fa8c, 0 0 30px #ff00de;
+    }
+    to {
+        text-shadow: 0 0 5px #f1fa8c, 0 0 10px #f1fa8c, 0 0 15px #ff00de;
+    }
+}
+
+.language-animation {
+    position: absolute;
+    top: 70%; /* Đặt animation chạy dưới tiêu đề */
+    left: 0;
+    width: 200%;
+    display: flex;
+    animation: slide 10s linear infinite;
+    z-index: 0; /* Đặt phía sau tiêu đề */
+}
+
+.language-icon {
+    width: 50px;
+    height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 0 30px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    
+}
+
+.language-icon.html { background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg'); }
+.language-icon.css { background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg'); }
+.language-icon.js { background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg'); }
+.language-icon.c { background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg'); }
+.language-icon.csharp { background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg'); }
+.language-icon.sql { background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg'); }
+.language-icon.mongo { background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg'); }
+.language-icon.net { background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg'); }
+
+.language-icon:hover {
+    transform: scale(1.2);
+}
+
+.c { color: #a1c4fd; }              /* Màu xanh nhạt cho C */
+.csharp { color: #9b4f96; }         /* Màu tím cho C# */
+.sql { color: #f29111; }            /* Màu cam cho SQL */
+.mongo { color: #47a248; }          /* Màu xanh lá cho MongoDB */
+.net { color: #512bd4; }            /* Màu xanh đậm cho .NET */
+
+/* Animation chạy ngang */
+@keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Tạm dừng khi hover */
+.language-animation:hover {
+    animation-play-state: paused;
+}
+
+.container {
+    display: grid;
+    grid-template-areas:
+        "html html html"
+        "css . js";
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.html-block {
+    grid-area: html;
+    justify-self: center;
+}
+
+.css-block {
+    grid-area: css;
+    justify-self: start;
+}
+
+.js-block {
+    grid-area: js;
+    justify-self: end;
+}
+
+.code-block {
+    background: #2d2d3d;
+    border: 2px solid #444;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    margin: 10px;
+}
+
+.code-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.language-label {
+    position: absolute;
+    top: -15px;
+    left: 15px;
+    background: #ff5555;
+    color: rgb(0, 0, 0);
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-transform: uppercase;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.html-block .language-label { background: #ff5555; }
+.css-block .language-label { background: #50fa7b; }
+.js-block .language-label { background: #f1fa8c; }
+
+pre {
+    color: #f8f8f2;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 10px;
+    background: #1e1e2e;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+pre span.property {
+    color: #ff79c6;
+}
+
+pre span {
+    color: #f1fa8c;
+}
+
+/* Hiệu ứng con trỏ nhấp nháy */
+.cursor {
+    display: inline-block;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Đảm bảo các phần tử typing không bị xuống dòng sai */
+.typing {
+    display: inline;
+}
+
+/* Styles for audio controls */
+.audio-controls {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.audio-controls button {
+    background-color: #8B4C70;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.audio-controls button:hover {
+    background-color: #522157;
+}
+
+.audio-controls input[type="range"] {
+    width: 150px;
+    cursor: pointer;
+    background-color: #8B4C70;
+}
